@@ -45,6 +45,11 @@
       <c:param name="id" value="${student.id}" />
     </c:url>
     <a href="${update_link}">수정</a>
+
+    <c:url var="update_link" value="/student/delete.jsp" >
+      <c:param name="id" value="${student.id}" />
+    </c:url>
+    <a href="${update_link}">삭제</a>
   </li>
 </c:if>
 

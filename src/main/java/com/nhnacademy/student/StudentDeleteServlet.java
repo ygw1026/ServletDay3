@@ -31,7 +31,8 @@ public class StudentDeleteServlet extends HttpServlet {
             throw new RuntimeException("StudentId Not Exist!!");
         }
 
-        studentRepository.deleteById(id);
+        studentRepository.deleteById(studentId);
         //todo /student/list <-- redirect
+        resp.sendRedirect(req.getContextPath() + "/student/list");
     }
 }
