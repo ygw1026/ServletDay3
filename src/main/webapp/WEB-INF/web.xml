@@ -12,4 +12,15 @@
         <listener-class>com.nhnacademy.student.WebApplicationListener</listener-class>
     </listener>
 
+    <!-- 404 -> /error  설정 -->
+    <error-page>
+        <error-code>404</error-code>
+        <location></location>
+    </error-page>
+
+    <!-- todo java.lang.Exception 발생시 -> /error 설정 -->
+    <error-page>
+        <exception-type></exception-type>
+        <location></location>
+    </error-page>
 </web-app>
