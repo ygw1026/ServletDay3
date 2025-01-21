@@ -1,4 +1,3 @@
-<jsp:useBean id="status_code" scope="application" type=""/>
 <%--
   Created by IntelliJ IDEA.
   User: nhnacademy
@@ -12,28 +11,32 @@
     <title>Error Page</title>
 </head>
 <body>
-<table>
-    <tbody>
-    <tr>
-        <th>status_code</th>
-        <td>${status_code}</td>
-    </tr>
-    <tr>
-        <th>exception_type</th>
-        <td><!-- todo exception_type 출력 --></td>
-    </tr>
-    <tr>
-        <th>message</th>
-        <td><!-- todo message 출력 --></td>
-    </tr>
-    <tr>
-        <th>exception</th>
-        <td><!-- todo exception 출력 --></td>
-    </tr>
-    <tr>
-        <th>request_uri</th>
-        <td><!-- todo request_uri 출력 --></td>
-    </tr>
-    </tbody>
+<form method="post" action="error/error">
+    <table>
+        <tbody>
+        <tr>
+            <th>status_code</th>
+            <td>404</td>
+        </tr>
+        <tr>
+            <th>exception_type</th>
+            <td>java.lang.Exception</td>
+        </tr>
+        <tr>
+            <th>message</th>
+            <td>Resource not found</td>
+        </tr>
+        <tr>
+            <th>exception</th>
+            <td>NullPointerException</td>
+        </tr>
+        <tr>
+            <th>request_uri</th>
+            <td>/non-existent-page</td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+
 </body>
 </html>
