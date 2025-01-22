@@ -10,14 +10,12 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Slf4j
 public class JsonStudentRepository implements StudentRepository{
     private final ObjectMapper objectMapper;
     private static final String JSON_FILE_PATH="/home/nhnacademy/IdeaProjects/Day3/src/main/json/student.json";
-    private final File file = new File(JSON_FILE_PATH);
 
     public JsonStudentRepository(){
         objectMapper = new ObjectMapper();
@@ -25,29 +23,25 @@ public class JsonStudentRepository implements StudentRepository{
         objectMapper.registerModule(new JavaTimeModule());
         //todo JSON_FILE_PATH 경로에 json 파일이 존재하면 삭제 합니다.
 
-        if (!file.exists()) {
-            try {
-                boolean isCreated = file.createNewFile();
-                if (isCreated) {
-                    log.info("새로운 파일이 생성되었습니다: {}", JSON_FILE_PATH);
-                }
-            } catch (IOException e) {
-                log.error("파일 생성 실패: {}", JSON_FILE_PATH, e);
-            }
+        File file = new File(JSON_FILE_PATH);
+
+        if (file.exists()) {
+            file.delete();
         }
     }
 
     private synchronized List<Student> readJsonFile(){
         //todo json 파일이 존재하지 않다면 비어있는 List<Student> 리턴
-        if (file.exists()){
+        File file = new File(JSON_FILE_PATH);
+        if (!file.exists()){
             return new ArrayList<>();
         }
         //json read & 역직렬화 ( json string -> Object )
         try(FileInputStream fileInputStream = new FileInputStream(file);
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, StandardCharsets.UTF_8);
-            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+            BufferedReader bufferedReader = new BufferedReader(inputStreamReader)
         ) {
-            return  objectMapper.readValue(bufferedReader, new TypeReference<>() {});
+            return  objectMapper.readValue(bufferedReader, new TypeReference<List<Student>>() {});
         } catch (JsonProcessingException e) {
             throw new RuntimeException("JSON 처리 오류", e);
         } catch (IOException e) {

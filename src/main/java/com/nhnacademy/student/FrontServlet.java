@@ -38,17 +38,17 @@ public class FrontServlet extends HttpServlet {
                     resp.sendRedirect(redirectUrl);
                 } else {
                     //todo redirect 아니면 JSP에게 view 처리를 위임하여 그 결과를 include시킴.
-                    log.info("forwarding to JSP page: {}", view);
+                    log.info("including to JSP page: {}", view);
                     RequestDispatcher dispatcher = req.getRequestDispatcher(view);
-                    dispatcher.forward(req, resp);
+                    dispatcher.include(req, resp);
                 }
             }
         } catch (Exception ex) {
             //todo 공통 error 처리 - ErrorServlet 참고해서 처리
             log.error("요청 처리 중 오류 발생", ex);
             req.setAttribute("errorMessage", ex.getMessage());
-            req.getRequestDispatcher("/error/error.jsp").forward(req, resp);
             //todo  forward - /error.jsp
+            req.getRequestDispatcher("/error/error.do").forward(req, resp);
         }
     }
 
@@ -58,23 +58,17 @@ public class FrontServlet extends HttpServlet {
         // equalsIgnoreCase : 대소문자를 구분하지 않고 문자열을 비교.
         if ("/student/delete.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
             command = new StudentDeleteController();
-        }
-        if("/student/register.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+        } else if("/student/register.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
             command = new StudentRegisterGetController();
-        }
-        if("/student/register.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
+        }else if("/student/register.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
             command = new StudentRegisterPostController();
-        }
-        if("/student/list.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+        }else if("/student/list.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
             command = new StudentListController();
-        }
-        if("/student/update.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+        } else if("/student/update.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
             command = new StudentUpdateGetController();
-        }
-        if("/student/update.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
+        } else if("/student/update.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
             command = new StudentUpdatePostController();
-        }
-        if("/student/view.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+        }else if("/student/view.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
             command = new StudentViewController();
         }
 

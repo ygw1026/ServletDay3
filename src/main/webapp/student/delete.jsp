@@ -11,7 +11,6 @@
   <title>Student - Update</title>
 </head>
 <body>
-
 <form method="post" action = "/student/delete.do">
   <label for="id">아이디:</label>
   <input type="text" id="id" name="id" required/><br/>
