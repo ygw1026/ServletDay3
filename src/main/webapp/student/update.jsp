@@ -12,7 +12,7 @@
   </head>
   <body>
 
-  <form method="post" action = "/student/update">
+  <form method="post" action = "/student/update.do">
     <label for="id">아이디:</label>
     <input type="text" id="id" name="id" required/><br/>
 

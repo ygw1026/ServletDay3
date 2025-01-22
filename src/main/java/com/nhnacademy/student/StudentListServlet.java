@@ -13,7 +13,7 @@ import java.util.Comparator;
 import java.util.List;
 
 @WebServlet(name = "StudentServlet", urlPatterns = "/student/list")
-public class StudentServlet extends HttpServlet {
+public class StudentListServlet extends HttpServlet {
     private StudentRepository studentRepository;
 
     @Override
@@ -35,7 +35,6 @@ public class StudentServlet extends HttpServlet {
         });
 
         req.setAttribute("studentList", studentList);
-
-        req.getRequestDispatcher("/student/list.jsp").forward(req, resp);
+        req.setAttribute("view", "/student/list.jsp");
     }
 }

@@ -14,13 +14,13 @@
 </head>
 <body>
 <h1>학생 조회</h1>
-<form method="get" action="/student/view">
+<form method="get" action="/student/view.do">
   <label for="id">아이디:</label>
   <input type="text" id="id" name="id" required /><br/>
   <button type="submit">검색</button>
 </form>
 
-<form method="get" action="/student/view">
+<form method="get" action="/student/view.do">
   <label for="name">이름:</label>
   <input type="text" id="name" name="name" required /><br/>
   <button type="submit">검색</button>
@@ -32,7 +32,6 @@
 </c:if>
 
 <%-- 학생 정보가 있다면 출력 --%>
-<form method="post"
 <c:if test="${not empty student}">
   <p><strong>아이디:</strong> ${student.id}</p>
   <p><strong>이름:</strong> ${student.name}</p>
@@ -54,7 +53,7 @@
 </c:if>
 
 <ul>
-  <li><a href="/student/list">리스트로 돌아가기</a></li>
+  <li><a href="/student/list.do">리스트로 돌아가기</a></li>
 </ul>
 </body>
 </html>

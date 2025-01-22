@@ -24,12 +24,11 @@ public class StudentRegisterServlet extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Student> studentList = studentRepository.getStudents();
 
-        req.setAttribute("studentList", studentList);
-
-        req.getRequestDispatcher("/student/register.jsp").forward(req, resp);
+//        req.getRequestDispatcher("/student/register.jsp").forward(req, resp);
+        req.setAttribute("view", "/student/register.jsp");
     }
+
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
@@ -62,6 +61,7 @@ public class StudentRegisterServlet extends HttpServlet {
         studentRepository.save(student);
 
         // 저장 후 학생 리스트 페이지로 리디렉션
-        resp.sendRedirect(req.getContextPath() + "/student/list");
+//        resp.sendRedirect(req.getContextPath() + "/student/list");
+        resp.sendRedirect("student/list.jsp");
     }
 }

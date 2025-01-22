@@ -41,6 +41,7 @@ public class StudentViewServlet extends HttpServlet {
             req.setAttribute("message", "학생을 찾을 수 없습니다.");
         }
 
-        req.getRequestDispatcher("/student/view.jsp").forward(req, resp);
+//        req.getRequestDispatcher("/student/view.jsp").forward(req, resp);
+        req.setAttribute("view", "/student/view.jsp");
     }
 }

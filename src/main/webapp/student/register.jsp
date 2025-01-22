@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<form method="post" action = "/student/register">
+<form method="post" action = "/student/register.do">
   <label for="id">아이디:</label>
   <input type="text" id="id" name="id" required /><br />
 
@@ -32,7 +32,7 @@
   <button type="submit">등록</button>
 </form>
 
-<form method="post" action ="/student/update">
+<form method="post" action ="/student/update.do">
   <button type="submit">수정</button>
 </form>
 </body>

@@ -41,7 +41,8 @@ public class StudentUpdateServlet extends HttpServlet {
         req.setAttribute("student", student);
 
         //todo forward : /student/register.jsp
-        req.getRequestDispatcher("/student/register.jsp").forward(req, resp);
+//        req.getRequestDispatcher("/student/register.jsp").forward(req, resp);
+        req.setAttribute("view", "/student/register.jsp");
     }
 
     @Override
@@ -78,6 +79,7 @@ public class StudentUpdateServlet extends HttpServlet {
         studentRepository.update(student);
 
         //todo /student/view?id=student1 <-- redirect
-        resp.sendRedirect(req.getContextPath() + "/student/list");
+//        resp.sendRedirect(req.getContextPath() + "/student/list");
+        resp.sendRedirect("/student/list.do");
     }
 }

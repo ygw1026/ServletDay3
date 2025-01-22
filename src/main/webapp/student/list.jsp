@@ -14,9 +14,8 @@
 </head>
 <body>
 <h1>학생 리스트</h1>
-<p><a href="/student/register" >학생(등록)</a></p>
-<p><a href="/student/update">학생(수정)</a></p>
-<p><a href="/student/view" >학생(조회)</a></p>
+<p><a href="/student/register.do" >학생(등록)</a></p>
+<p><a href="/student/view.do" >학생(조회)</a></p>
 <table>
   <thead>
   <tr>

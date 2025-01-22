@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form method="post" action = "/student/delete">
+<form method="post" action = "/student/delete.do">
   <label for="id">아이디:</label>
   <input type="text" id="id" name="id" required/><br/>
 
@@ -21,5 +21,10 @@
 
   <button type="submit">삭제</button>
 </form>
+
+<ul>
+  <li><a href="/student/list.do">리스트로 돌아가기</a></li>
+</ul>
+
 </body>
 </html>
