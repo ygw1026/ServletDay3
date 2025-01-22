@@ -14,21 +14,21 @@ import java.io.IOException;
 @Slf4j
 @WebServlet(name = "frontServlet", urlPatterns = "*.do")
 public class FrontServlet extends HttpServlet {
+
     private static final String REDIRECT_PREFIX = "redirect";
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //todo 공통 처리 - 응답 content-type, character encoding 지정.
-        resp.setContentType("text/html; charset=UTF-8");
+        resp.setContentType("text/html");
+        resp.setCharacterEncoding("UTF-8");
 
         try {
             //실제 요청 처리할 servlet을 결정
-            String servletPath = resolveServlet(req.getServletPath());
-            RequestDispatcher rd = req.getRequestDispatcher(servletPath);
-            rd.include(req, resp);
+            Command command = resolveServlet(req.getServletPath(), req.getMethod());
 
             //실제 요청을 처리한 servlet 이 'view' 라는 request 속성값으로 view 를 전달해 줌.
-            String view = (String) req.getAttribute("view");
+            String view = command.execute(req, resp);
 
             if (view != null) {
                 if (view.startsWith(REDIRECT_PREFIX)) {
@@ -52,26 +52,33 @@ public class FrontServlet extends HttpServlet {
         }
     }
 
-    private String resolveServlet(String servletPath) {
-        String processingServlet = null;
+    private Command resolveServlet(String servletPath, String method) {
+        Command command = null;
 
-        if ("/student/list.do".equals(servletPath)) {
-            processingServlet = "/student/list";
+        // equalsIgnoreCase : 대소문자를 구분하지 않고 문자열을 비교.
+        if ("/student/delete.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
+            command = new StudentDeleteController();
         }
-        if ("/student/view.do".equals(servletPath)) {
-            processingServlet = "/student/view";
+        if("/student/register.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+            command = new StudentRegisterGetController();
         }
-        if ("/student/update.do".equals(servletPath)) {
-            processingServlet = "/student/update";
+        if("/student/register.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
+            command = new StudentRegisterPostController();
         }
-        if ("/student/delete.do".equals(servletPath)) {
-            processingServlet = "/student/delete";
+        if("/student/list.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+            command = new StudentListController();
         }
-        if ("/student/register.do".equals(servletPath)) {
-            processingServlet = "/student/register";
+        if("/student/update.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+            command = new StudentUpdateGetController();
+        }
+        if("/student/update.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
+            command = new StudentUpdatePostController();
+        }
+        if("/student/view.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+            command = new StudentViewController();
         }
 
         //todo 실행할 servlet 결정하기
-        return processingServlet;
+        return command;
     }
 }

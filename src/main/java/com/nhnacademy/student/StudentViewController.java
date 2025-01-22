@@ -1,26 +1,16 @@
 package com.nhnacademy.student;
 
-import jakarta.servlet.ServletConfig;
-import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.util.List;
 
-@WebServlet(name="StudentViewServlet", urlPatterns = "/student/view")
-public class StudentViewServlet extends HttpServlet {
-    private StudentRepository studentRepository;
+public class StudentViewController implements Command{
 
     @Override
-    public void init(ServletConfig config) throws ServletException{
-        studentRepository = (StudentRepository) config.getServletContext().getAttribute("studentRepository");
-    }
+    public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        StudentRepository studentRepository = (StudentRepository) req.getServletContext().getAttribute("studentRepository");
 
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String id = req.getParameter("id");
         String name = req.getParameter("name");
         Student student = null;
@@ -41,7 +31,6 @@ public class StudentViewServlet extends HttpServlet {
             req.setAttribute("message", "학생을 찾을 수 없습니다.");
         }
 
-//        req.getRequestDispatcher("/student/view.jsp").forward(req, resp);
-        req.setAttribute("view", "/student/view.jsp");
+        return "/student/view.jsp";
     }
 }
