@@ -1,14 +1,10 @@
 package com.nhnacademy.stopwatch;
 
-import com.nhnacademy.PerformanceTestable;
-import com.nhnacademy.StopWatch;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class ArrayListTest implements PerformanceTestable {
 
-    @StopWatch
     @Override
     public void test() {
         List<Integer> integerList = new ArrayList<>();

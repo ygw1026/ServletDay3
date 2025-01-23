@@ -1,8 +1,5 @@
 package com.nhnacademy.stopwatch;
 
-import com.nhnacademy.PerformanceTestable;
-import com.nhnacademy.StopWatch;
-
 import java.lang.reflect.Method;
 import java.util.Objects;
 
