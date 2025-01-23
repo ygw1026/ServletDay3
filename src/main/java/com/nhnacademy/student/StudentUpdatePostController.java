@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+@RequestMapping(value = "/student/update.do", method = RequestMapping.Method.POST)
 public class StudentUpdatePostController implements Command{
 
     @Override
@@ -44,6 +45,6 @@ public class StudentUpdatePostController implements Command{
 
         //todo /student/view?id=student1 <-- redirect
 
-        return "/com/nhnacademy/student/list.jsp";
+        return "/student/list.jsp";
     }
 }

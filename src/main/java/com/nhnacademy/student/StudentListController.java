@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.util.List;
 
+@RequestMapping(value = "/student/list.do", method = RequestMapping.Method.GET)
 public class StudentListController implements Command{
 
     @Override
@@ -19,6 +20,6 @@ public class StudentListController implements Command{
         // 정렬된 학생 목록을 request 에 설정
         req.setAttribute("studentList", studentList);
 
-        return "/com/nhnacademy/student/list.jsp";
+        return "/student/list.jsp";
     }
 }

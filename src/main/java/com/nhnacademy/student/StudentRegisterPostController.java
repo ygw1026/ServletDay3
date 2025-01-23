@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+@RequestMapping(value = "/student/register.do", method = RequestMapping.Method.POST)
 public class StudentRegisterPostController implements Command{
 
     @Override

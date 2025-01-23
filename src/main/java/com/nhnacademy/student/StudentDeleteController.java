@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+@RequestMapping(value = "/student/delete.do", method = RequestMapping.Method.POST)
 public class StudentDeleteController implements Command {
 
     @Override
@@ -18,6 +19,6 @@ public class StudentDeleteController implements Command {
 
         studentRepository.deleteById(id);
 
-        return "/com/nhnacademy/student/delete.jsp";
+        return "/student/delete.jsp";
     }
 }

@@ -5,6 +5,8 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+
+@RequestMapping(value = "/student/view.do", method = RequestMapping.Method.GET)
 public class StudentViewController implements Command{
 
     @Override
@@ -31,6 +33,6 @@ public class StudentViewController implements Command{
             req.setAttribute("message", "학생을 찾을 수 없습니다.");
         }
 
-        return "/com/nhnacademy/student/view.jsp";
+        return "/student/view.jsp";
     }
 }

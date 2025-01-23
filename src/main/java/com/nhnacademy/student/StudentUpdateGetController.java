@@ -5,6 +5,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
+@RequestMapping(value = "/student/update.do", method = RequestMapping.Method.GET)
 public class StudentUpdateGetController implements Command{
 
     @Override
@@ -29,6 +30,6 @@ public class StudentUpdateGetController implements Command{
 
         req.setAttribute("student", student);
 
-        return "/com/nhnacademy/student/register.jsp";
+        return "/student/register.jsp";
     }
 }

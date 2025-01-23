@@ -3,8 +3,8 @@ package com.nhnacademy.stopwatch;
 import java.lang.reflect.Method;
 import java.util.Objects;
 
-public class ArrayListTestProxy implements com.nhnacademy.PerformanceTestable {
-    private final com.nhnacademy.PerformanceTestable performanceTestable;
+public class ArrayListTestProxy implements com.nhnacademy.stopwatch.PerformanceTestable {
+    private final com.nhnacademy.stopwatch.PerformanceTestable performanceTestable;
 
     public ArrayListTestProxy(PerformanceTestable performanceTestable) {
         this.performanceTestable = performanceTestable;
@@ -25,7 +25,7 @@ public class ArrayListTestProxy implements com.nhnacademy.PerformanceTestable {
 
     private boolean hasStopWatch(){
         for(Method method : performanceTestable.getClass().getDeclaredMethods()){
-            com.nhnacademy.StopWatch stopWatch = method.getAnnotation(StopWatch.class);
+            com.nhnacademy.stopwatch.StopWatch stopWatch = method.getAnnotation(StopWatch.class);
             if(Objects.nonNull(stopWatch)){
                 return true;
             }
