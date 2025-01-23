@@ -18,6 +18,6 @@ public class StudentDeleteController implements Command {
 
         studentRepository.deleteById(id);
 
-        return "/student/delete.jsp";
+        return "/com/nhnacademy/student/delete.jsp";
     }
 }

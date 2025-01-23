@@ -29,6 +29,6 @@ public class StudentUpdateGetController implements Command{
 
         req.setAttribute("student", student);
 
-        return "/student/register.jsp";
+        return "/com/nhnacademy/student/register.jsp";
     }
 }

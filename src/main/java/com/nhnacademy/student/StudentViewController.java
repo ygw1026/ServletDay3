@@ -31,6 +31,6 @@ public class StudentViewController implements Command{
             req.setAttribute("message", "학생을 찾을 수 없습니다.");
         }
 
-        return "/student/view.jsp";
+        return "/com/nhnacademy/student/view.jsp";
     }
 }

@@ -1,7 +1,6 @@
 package com.nhnacademy.student;
 
 import jakarta.servlet.RequestDispatcher;
-import jakarta.servlet.Servlet;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -56,19 +55,19 @@ public class FrontServlet extends HttpServlet {
         Command command = null;
 
         // equalsIgnoreCase : 대소문자를 구분하지 않고 문자열을 비교.
-        if ("/student/delete.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
+        if ("/com/nhnacademy/student/delete.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
             command = new StudentDeleteController();
-        } else if("/student/register.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+        } else if("/com/nhnacademy/student/register.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
             command = new StudentRegisterGetController();
-        }else if("/student/register.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
+        }else if("/com/nhnacademy/student/register.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
             command = new StudentRegisterPostController();
-        }else if("/student/list.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+        }else if("/com/nhnacademy/student/list.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
             command = new StudentListController();
-        } else if("/student/update.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+        } else if("/com/nhnacademy/student/update.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
             command = new StudentUpdateGetController();
-        } else if("/student/update.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
+        } else if("/com/nhnacademy/student/update.do".equals(servletPath) && "POST".equalsIgnoreCase(method)){
             command = new StudentUpdatePostController();
-        }else if("/student/view.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
+        }else if("/com/nhnacademy/student/view.do".equals(servletPath) && "GET".equalsIgnoreCase(method)){
             command = new StudentViewController();
         }
 

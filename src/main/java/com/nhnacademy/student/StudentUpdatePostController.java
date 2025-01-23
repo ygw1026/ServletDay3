@@ -1,6 +1,5 @@
 package com.nhnacademy.student;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
@@ -45,6 +44,6 @@ public class StudentUpdatePostController implements Command{
 
         //todo /student/view?id=student1 <-- redirect
 
-        return "/student/list.jsp";
+        return "/com/nhnacademy/student/list.jsp";
     }
 }

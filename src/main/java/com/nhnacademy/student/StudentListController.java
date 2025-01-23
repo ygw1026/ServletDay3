@@ -1,11 +1,8 @@
 package com.nhnacademy.student;
 
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class StudentListController implements Command{
@@ -22,6 +19,6 @@ public class StudentListController implements Command{
         // 정렬된 학생 목록을 request 에 설정
         req.setAttribute("studentList", studentList);
 
-        return "/student/list.jsp";
+        return "/com/nhnacademy/student/list.jsp";
     }
 }

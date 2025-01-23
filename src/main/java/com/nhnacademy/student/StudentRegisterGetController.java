@@ -7,6 +7,6 @@ public class StudentRegisterGetController implements Command{
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp){
-        return "/student/register.jsp";
+        return "/com/nhnacademy/student/register.jsp";
     }
 }
