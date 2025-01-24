@@ -1,4 +1,4 @@
-package com.nhnacademy.student;
+package com.nhnacademy.student.common.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

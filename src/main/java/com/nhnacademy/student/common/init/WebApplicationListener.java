@@ -1,5 +1,8 @@
-package com.nhnacademy.student;
+package com.nhnacademy.student.common.init;
 
+import com.nhnacademy.student.domain.Student;
+import com.nhnacademy.student.repository.impl.JsonStudentRepository;
+import com.nhnacademy.student.repository.StudentRepository;
 import jakarta.servlet.ServletContext;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;

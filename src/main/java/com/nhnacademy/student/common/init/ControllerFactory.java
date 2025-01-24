@@ -1,9 +1,12 @@
-package com.nhnacademy.student;
+package com.nhnacademy.student.common.init;
+
+import com.nhnacademy.student.common.annotation.RequestMapping;
+import com.nhnacademy.student.common.annotation.StopWatchProxy;
+import com.nhnacademy.student.controller.Command;
 
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
-import java.lang.reflect.Method;
 
 public class ControllerFactory {
     private final ConcurrentMap<String, Object> beanMap = new ConcurrentHashMap<>();
@@ -23,7 +26,7 @@ public class ControllerFactory {
                     throw new RuntimeException(e);
                 }
 
-                beanMap.put(method + path, controller);
+                beanMap.put(method + path, new StopWatchProxy((Command)controller));
             }
         }
     }

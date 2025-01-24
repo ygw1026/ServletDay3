@@ -1,4 +1,4 @@
-package com.nhnacademy.student;
+package com.nhnacademy.student.controller;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

@@ -1,16 +1,24 @@
-package com.nhnacademy.student;
+package com.nhnacademy.student.controller.impl;
 
+import com.nhnacademy.student.common.annotation.RequestMapping;
+import com.nhnacademy.student.controller.Command;
+import com.nhnacademy.student.domain.Student;
+import com.nhnacademy.student.repository.StudentRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 
 
+@Slf4j
 @RequestMapping(value = "/student/view.do", method = RequestMapping.Method.GET)
-public class StudentViewController implements Command{
+public class StudentViewController implements Command {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+
+
         StudentRepository studentRepository = (StudentRepository) req.getServletContext().getAttribute("studentRepository");
 
         String id = req.getParameter("id");

@@ -1,5 +1,8 @@
-package com.nhnacademy.student;
+package com.nhnacademy.student.servlet;
 
+import com.nhnacademy.student.common.annotation.StopWatchProxy;
+import com.nhnacademy.student.common.init.ControllerFactory;
+import com.nhnacademy.student.controller.Command;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -26,8 +29,12 @@ public class FrontServlet extends HttpServlet {
         try{
             ControllerFactory controllerFactory = (ControllerFactory) req.getServletContext().getAttribute("controllerFactory");
             Command command = (Command) controllerFactory.getBean(req.getMethod(), req.getServletPath());
+
+//            StopWatchProxy command = new StopWatchProxy(targetCommand);
+
             //실제 요청을 처리한 servlet 이 'view' 라는 request 속성값으로 view 를 전달해 줌.
             String view = command.execute(req, resp);
+
         if (command == null) {
             throw new ServletException("해당 경로에 대한 Command 를 찾을 수 없습니다: " + req.getServletPath());
         }
@@ -49,7 +56,8 @@ public class FrontServlet extends HttpServlet {
             log.error("요청 처리 중 오류 발생", ex);
 //            req.setAttribute("errorMessage", ex.getMessage());
             //todo  forward - /error.jsp
-//            req.getRequestDispatcher("/error.do").forward(req, resp);
+            // redirect 로 처리
+//            req.getRequestDispatcher("/error.do").include(req, resp);
         }
     }
 

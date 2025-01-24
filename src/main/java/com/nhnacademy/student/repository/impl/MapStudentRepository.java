@@ -1,5 +1,7 @@
-package com.nhnacademy.student;
+package com.nhnacademy.student.repository.impl;
 
+import com.nhnacademy.student.domain.Student;
+import com.nhnacademy.student.repository.StudentRepository;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -8,7 +10,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Slf4j
-public class MapStudentRepository implements StudentRepository{
+public class MapStudentRepository implements StudentRepository {
     private Map<String, Student> studentMap = new ConcurrentHashMap<>();
 
 

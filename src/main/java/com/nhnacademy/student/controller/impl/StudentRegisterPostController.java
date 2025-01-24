@@ -1,12 +1,16 @@
-package com.nhnacademy.student;
+package com.nhnacademy.student.controller.impl;
 
+import com.nhnacademy.student.common.annotation.RequestMapping;
+import com.nhnacademy.student.controller.Command;
+import com.nhnacademy.student.domain.Student;
+import com.nhnacademy.student.repository.StudentRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
 @RequestMapping(value = "/student/register.do", method = RequestMapping.Method.POST)
-public class StudentRegisterPostController implements Command{
+public class StudentRegisterPostController implements Command {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) {

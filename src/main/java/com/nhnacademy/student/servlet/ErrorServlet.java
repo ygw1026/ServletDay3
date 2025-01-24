@@ -1,4 +1,4 @@
-package com.nhnacademy.student;
+package com.nhnacademy.student.servlet;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

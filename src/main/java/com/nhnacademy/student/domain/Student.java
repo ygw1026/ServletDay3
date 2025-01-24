@@ -1,4 +1,4 @@
-package com.nhnacademy.student;
+package com.nhnacademy.student.domain;
 
 
 import java.util.Date;

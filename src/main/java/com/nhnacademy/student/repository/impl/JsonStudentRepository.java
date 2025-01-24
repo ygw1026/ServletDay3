@@ -1,9 +1,11 @@
-package com.nhnacademy.student;
+package com.nhnacademy.student.repository.impl;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.nhnacademy.student.domain.Student;
+import com.nhnacademy.student.repository.StudentRepository;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.*;
@@ -13,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
-public class JsonStudentRepository implements StudentRepository{
+public class JsonStudentRepository implements StudentRepository {
     private final ObjectMapper objectMapper;
     private static final String JSON_FILE_PATH="/home/nhnacademy/IdeaProjects/Day3/src/main/json/student.json";
 

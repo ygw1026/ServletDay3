@@ -1,15 +1,25 @@
-package com.nhnacademy.student;
+package com.nhnacademy.student.controller.impl;
 
+import com.nhnacademy.student.common.annotation.RequestMapping;
+import com.nhnacademy.student.controller.Command;
+import com.nhnacademy.student.domain.Student;
+import com.nhnacademy.student.repository.StudentRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 
 import java.io.IOException;
 
+@Slf4j
 @RequestMapping(value = "/student/update.do", method = RequestMapping.Method.POST)
-public class StudentUpdatePostController implements Command{
+public class StudentUpdatePostController implements Command {
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws IOException{
+
+        // 트랜잭션 처리
+        // 관리자 권한 체크
+
 
         StudentRepository studentRepository = (StudentRepository) req.getServletContext().getAttribute("studentRepository");
 
